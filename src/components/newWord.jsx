@@ -4,60 +4,95 @@ function NewWord() {
   const [word, setWord] = useState("");
   const [items, setItems] = useState([]);
 
+  const [editId, setEditId] = useState(null);
+  const [editWord, setEditWord] = useState("");
+
   function handleAdd() {
     if (word.trim() === "") return;
-  
-    setItems([...items,{word,id:Math.random()}]);
-    setWord(""); 
+    setItems([...items, { word, id: Math.random() }]);
+    setWord("");
   }
 
   function handleDelete(id) {
     setItems((prev) => prev.filter((item) => item.id !== id));
   }
 
+  function handleEdit(id, word) {
+    setEditId(id);
+    setEditWord(word);
+  }
+
+  function handleSave() {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === editId ? { ...item, word: editWord } : item
+      )
+    );
+    setEditId(null);
+    setEditWord("");
+  }
+
   return (
-    <>
-      <div className="flex flex-col max-w-lg mx-auto">
-        <ul className="list-disc pb-10 pl-5">
-          {items.map((item) => (
-            <li
-              key={item.id}
-              className="pb-5 relative bg-gray-200 w-1/2"
-            >
-              {item.word}
+    <div className="flex flex-col max-w-xl mx-auto">
+      <ul className="list-disc pb-10 pl-5">
+        {items.map((item) => (
+          <li
+            key={item.id}
+            className="pb-5 bg-gray-200 w-full flex justify-between gap-2 p-2 rounded"
+          >
+            {editId === item.id ? (
+              <input
+                className="flex-grow px-2 py-1"
+                value={editWord}
+                onChange={(e) => setEditWord(e.target.value)}
+              />
+            ) : (
+              <span className="break-words max-w-[60%]">{item.word}</span>
+            )}
+
+            <div className="flex gap-1">
               <button
-                className="absolute top-[10%] right-[5%] w-[20px] h-[20px] bg-red-600 text-white rounded-full flex items-center justify-center"
-                onClick={() => handleDelete(item.id)} 
+                className="w-[30px] h-[30px] bg-red-600 text-white rounded-full flex items-center justify-center"
+                onClick={() => handleDelete(item.id)}
               >
                 X
               </button>
 
+              {editId === item.id ? (
                 <button
-                className="absolute top-[10%] right-[15%] w-1/3 h-[20px] bg-red-600 text-white  flex items-center justify-center"
-                onClick={() => handleDelete(item.id)} 
-              >
-                Edit
-              </button>
-            </li>
-          ))}
-        </ul>
+                  className="px-2 h-[30px] bg-green-600 text-white rounded"
+                  onClick={handleSave}
+                >
+                  Save
+                </button>
+              ) : (
+                <button
+                  className="px-2 h-[30px] bg-blue-600 text-white rounded"
+                  onClick={() => handleEdit(item.id, item.word)}
+                >
+                  Edit
+                </button>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
 
-        <input
-          type="text"
-          className="shadow hover:shadow-xl focus:outline-none focus:ring mb-10 max-w-sm px-5 py-5"
-          value={word}
-          onChange={(event) => setWord(event.target.value)}
-          placeholder="Enter a word"
-        />
+      <input
+        type="text"
+        className="shadow hover:shadow-xl focus:outline-none focus:ring mb-10 w-full px-5 py-5"
+        value={word}
+        onChange={(e) => setWord(e.target.value)}
+        placeholder="Enter a word"
+      />
 
-        <button
-          className="border bg-gray-500 w-1/3 mx-auto text-white py-2 rounded"
-          onClick={handleAdd}
-        >
-          Submit
-        </button>
-      </div>
-    </>
+      <button
+        className="border bg-gray-500 w-1/3 mx-auto text-white py-2 rounded"
+        onClick={handleAdd}
+      >
+        Submit
+      </button>
+    </div>
   );
 }
 
