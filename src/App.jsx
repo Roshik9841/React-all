@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import NewWord from "./components/newWord"
-import Api from './components/Api';
+import NewWord from "./pages/newWord"
+import Api from './pages/Api';
 import {BrowserRouter,Route,Routes } from 'react-router-dom';
 function App() {
   
