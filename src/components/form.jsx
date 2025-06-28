@@ -16,7 +16,7 @@ function App() {
     setForms(updatedForms);
   }
   
-  //for single form 
+  //for single form  object use garda
 
   //   function handleChange( field, value) {
   //     setForms((prev)=>({...prev,[field]:value}))

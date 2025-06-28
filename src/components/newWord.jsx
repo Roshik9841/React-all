@@ -18,14 +18,14 @@ function NewWord() {
   }
 
   function handleEdit(id, word) {
-    setEditId(id);
-    setEditWord(word);
+    setEditId(id);                  //edit garna lako id = word ko id
+    setEditWord(word);               //editWord = aagadi reakheko word
   }
 
-  function handleSave() {
+  function handleSave() {       
     setItems((prev) =>
-      prev.map((item) =>
-        item.id === editId ? { ...item, word: editWord } : item
+      prev.map((item) =>                              //yeta sabaii item haru map garxa
+        item.id === editId ? { ...item, word: editWord } : item                  //ani item id ra edit id ssame xa bhaye purano word lai editWord le replace gardini
       )
     );
     setEditId(null);
@@ -35,11 +35,13 @@ function NewWord() {
   return (
     <div className="flex flex-col max-w-xl mx-auto">
       <ul className="list-disc pb-10 pl-5">
+   
         {items.map((item) => (
           <li
             key={item.id}
-            className="pb-5 bg-gray-200 w-full flex justify-between gap-2 p-2 rounded"
-          >
+            className="pb-5 bg-gray-200 w-full flex justify-between list-disc  gap-2 p-2 rounded"
+          >  
+          {/* yedi editId ra item.id same xa bhaye input dekhauni ani editWord change garni */}
             {editId === item.id ? (
               <input
                 className="flex-grow px-2 py-1"
@@ -61,14 +63,15 @@ function NewWord() {
               {editId === item.id ? (
                 <button
                   className="px-2 h-[30px] bg-green-600 text-white rounded"
-                  onClick={handleSave}
+                  onClick={handleSave}          
+                  // yeta pani edit id ra item id same xa bhaye save button aauxa ani click garesi handleSave ma janxa
                 >
                   Save
                 </button>
               ) : (
                 <button
                   className="px-2 h-[30px] bg-blue-600 text-white rounded"
-                  onClick={() => handleEdit(item.id, item.word)}
+                  onClick={() => handleEdit(item.id, item.word)}       //edit ma click garesi
                 >
                   Edit
                 </button>
