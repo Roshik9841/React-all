@@ -19,26 +19,20 @@ function Api() {
   }, []);
 
   return (
-    <div>
+    <div >
       {error && <p>Error: {error}</p>}
       {!data ? (
         <p>Loading...</p>
       ) : (
-        data.recipes.map((recipe) => (
-          <div key={recipe.id} style={{ border: "1px solid #ccc", marginBottom: "1rem", padding: "1rem" }}>
+        <div className="grid lg:grid-cols-3 gap-10 max-w-7xl mx-auto  bg-red-200">
+        {data.recipes.map((recipe) => (
+          <div key={recipe.id}>
             <h2>{recipe.name}</h2>
             <img src={recipe.image} alt={recipe.name} style={{ width: "200px" }} />
-            <p><strong>Prep Time:</strong> {recipe.prepTimeMinutes} mins</p>
-            <p><strong>Cook Time:</strong> {recipe.cookTimeMinutes} mins</p>
-            <p><strong>Servings:</strong> {recipe.servings}</p>
-            <p><strong>Difficulty:</strong> {recipe.difficulty}</p>
-            <p><strong>Cuisine:</strong> {recipe.cuisine}</p>
-            <p><strong>Calories:</strong> {recipe.caloriesPerServing}</p>
-            <p><strong>Ingredients:</strong> {recipe.ingredients.join(", ")}</p>
-            <p><strong>Instructions:</strong> {recipe.instructions.join(" -> ")}</p>
-            <p><strong>Tags:</strong> {recipe.tags.join(", ")}</p>
+           
           </div>
-        ))
+        ))}
+        </div>
       )}
     </div>
   );
