@@ -5,24 +5,15 @@ function Api() {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("https://dummyjson.com/recipes");
-        const jsonData = await res.json();
-        setData(jsonData);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    fetchData();
-  }, []);
+  
+  function updateValue(apiItem){
+    setData(apiItem);
+  }
 
   return (
     <div>
       {error && <p>Error: {error}</p>}
-       <Search/>
+       <Search updateValue={updateValue}/>
       {!data ? (
         <p>Loading...</p>
       ) : (
