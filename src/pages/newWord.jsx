@@ -1,24 +1,43 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
+const reducer = (items,action)=>{
+  switch(action.type){
+    case 'add':{
+      return [...items,{word: action.word,id: action.id}];
+    }
+    case 'delete':{
+      return items.filter((item) => item.id !== id);
+    }
+
+  }
+}
 function NewWord() {
   const [word, setWord] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, dispatch] = useReducer(reducer,[]);
 
   const [editId, setEditId] = useState(null);
   const [editWord, setEditWord] = useState("");
 
   function handleAdd() {
     if (word.trim() === "") return;
-    setItems([...items, { word, id: Math.random() }]);
+    dispatch({
+      type:'add',
+      word,
+      id:Math.random(),
+    })
     setWord("");
   }
 
   function handleDelete(id) {
-    setItems((prev) => prev.filter((item) => item.id !== id));
+    dispatch({
+      type:'delete',
+      id,
+    })
+  
   }
 
   function handleEdit(id, word) {
-    setEditId(id);                  //edit garna lako id = word ko id
+    setEditId(id);                  //edit garna lako id = word ko id 
     setEditWord(word);               //editWord = aagadi reakheko word
   }
 

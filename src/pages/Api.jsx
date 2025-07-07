@@ -4,6 +4,7 @@ import Search from "../components/Search";
 import { ApiDataContext } from "../App";
 function Api() {
   const {data,setData} = React.useContext(ApiDataContext);
+  
   const [error, setError] = useState("");
 
   function updateValue(apiItem) {
