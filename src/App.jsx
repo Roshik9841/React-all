@@ -12,7 +12,7 @@ function App() {
     <ApiDataContext.Provider value={value}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Api />} />
+          <Route path="/" element={<NewWord />} />
         </Routes>
       </BrowserRouter>
     </ApiDataContext.Provider>

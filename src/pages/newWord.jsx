@@ -6,8 +6,13 @@ const reducer = (items,action)=>{
       return [...items,{word: action.word,id: action.id}];
     }
     case 'delete':{
-      return items.filter((item) => item.id !== id);
+      return items.filter((item) => item.id !== action.id);
     }
+    case 'edit': {
+  return items.map((item) =>
+    item.id === action.id ? { ...item, word: action.word } : item
+  );
+}
 
   }
 }
@@ -42,13 +47,13 @@ function NewWord() {
   }
 
   function handleSave() {       
-    setItems((prev) =>
-      prev.map((item) =>                              //yeta sabaii item haru map garxa
-        item.id === editId ? { ...item, word: editWord } : item                  //ani item id ra edit id ssame xa bhaye purano word lai editWord le replace gardini
-      )
-    );
-    setEditId(null);
-    setEditWord("");
+    dispatch({
+    type: 'edit',
+    id: editId,
+    word: editWord,
+  });
+  setEditId(null);
+  setEditWord("");
   }
 
   return (

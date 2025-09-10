@@ -26,9 +26,9 @@ export default function Search({updateValue}) {
       type="text"
       placeholder="search your item"
       value={searchItem}
-      onChange={(event) => {
-        setSearchItem(event.target.value);
-      }}
+      onchange= {e=>{
+        setSearchItem(e.target.value)
+      }} 
     />
   );
 }

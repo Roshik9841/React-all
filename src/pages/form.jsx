@@ -22,6 +22,14 @@ function App() {
   //     setForms((prev)=>({...prev,[field]:value}))
   // }
 
+// yesto ni garna milxa
+  //   const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
+    // <input name="name" onChange={handleChange} placeholder="Name" />
+    //   <textarea name="message" onChange={handleChange} placeholder="Message" />
+
+
   // Add a new empty form to the array
   function handleAdd() {
     setForms(prev => [
