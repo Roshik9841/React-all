@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
+
+@font-face {
+  font-family: 'Aka-AcidGR-Compa';
+  src: url('./assets/fonts/Aka-AcidGR-Compa.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

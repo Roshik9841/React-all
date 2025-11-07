@@ -4,6 +4,9 @@ import Api from "./pages/Api";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 import Timeline from "./components/TimeLine";
+import Slidebar from "./pages/Slidebar";
+import Cart from "./pages/Cart";
+import Navbar from "./components/TimeLine";
 
 export const ApiDataContext = React.createContext();
 function App() {
@@ -13,7 +16,7 @@ function App() {
     <ApiDataContext.Provider value={value}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Timeline />} />
+          <Route path="/" element={<Cart/>} />
         </Routes>
       </BrowserRouter>
     </ApiDataContext.Provider>

@@ -5,7 +5,11 @@ export default {
       "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-      extend: {},
+      extend: {
+         fontFamily: {
+        aka: ['Aka-AcidGR-Compa', 'sans-serif'], // aka is a custom name you choose
+      },
+      },
     },
     plugins: [],
   } 
