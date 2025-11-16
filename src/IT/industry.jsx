@@ -31,11 +31,12 @@ export const Industry = () =>{
         <section className="bg-[#114280] text-white px-6 py-14 md:px-10 md:py-20 ">
         <div className="flex flex-col lg:flex-row gap-10">
       
-          <div className="lg:w-1/2 space-y-4 text-center lg:text-left ">
-            <h2 className="text-lg opacity-70">Industries</h2>
-            <h1 className="text-3xl md:text-6xl font-bold leading-relaxed">
+          <div className="lg:w-1/2 space-y-4  lg:text-left ">
+            <h2 className="text-lg opacity-70 hidden md:block">Industries</h2>
+            <h1 className="text-3xl md:text-6xl font-bold leading-relaxed hidden md:block">
               Helping <span className="block"> Businesses in All</span>  Domains
             </h1>
+             <p className="md:hidden font-semi-bold leading-relaxed text-4xl">CONTENT <span className="block">HEADING</span></p>
             <p className="text-base lg:text-lg leading-relaxed">
               To understand what we can do for you, start by understanding what we’ve done for others. We are proud of the strong working relationships
                we’ve built with all our clients over the years. We believe that these names are a testament to our proven capabilities and strategic approach.

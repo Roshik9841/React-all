@@ -2,14 +2,15 @@ import like from "../assets/like.png";
 
 export const Contact = ()=>{
     return(
- <section className="px-6 md:px-10 py-16 flex flex-col md:flex-row items-center justify-between bg-gray-50 text-center md:text-left">
+ <section className="px-6 md:px-10 py-16 flex flex-col md:flex-row items-center justify-between bg-gray-50  md:text-left">
         <div className="md:w-1/2 space-y-7 ">
-          <p className="text-sm uppercase  text-gray-500">
+          <p className="text-sm uppercase  text-gray-500 md:block hidden">
             Let’s Get Started With Your Project
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 md:block hidden">
             Have a Question or Ready to Grow Your Business Today?
           </h2>
+           <p className="md:hidden font-semi-bold leading-relaxed text-4xl">CONTENT <span className="block">HEADING</span></p>
           <p className="text-gray-600 text-xl leading-relaxed">
             We will satisfy you fully as per your expectation in delivering our
             services.{" "}

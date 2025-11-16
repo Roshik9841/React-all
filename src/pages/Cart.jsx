@@ -25,18 +25,19 @@ function Cart() {
       </nav>
 
    
-      <section className="bg-[#114280] flex flex-col md:flex-row justify-between items-center text-white rounded-lg font-aka sm:p-6  md:py-14 lg:pl-14 m-4 md:m-8">
+      <section className="bg-[#114280] flex flex-col md:flex-row justify-between items-center text-white rounded-lg font-aka p-6  md:py-14 lg:pl-14 m-4 md:m-8">
         <div className="w-full md:w-full space-y-4  md:text-left">
           <p className="hidden md:flex text-md opacity-90">
             Our experience helps to boost your business
           </p>
+          <p className="md:hidden font-semi-bold leading-relaxed text-4xl">CONTENT <span className="block">HEADING</span></p>
           <h1 className=" hidden md:block text-3xl md:text-6xl  font-semibold leading-tight">
             We'll build you <span className="flex">custom websites and</span>{" "}
             manage it too!
           </h1>
           <p className="text-base opacity-90 justify-start">
             We’re a creative Web Design & Development Company in Kathmandu,
-            <span className="block">
+            <span className="md:block">
               Nepal. We build amazing websites and robust Software applications.
             </span>
           </p>
