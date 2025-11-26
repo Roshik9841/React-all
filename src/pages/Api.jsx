@@ -8,10 +8,7 @@ function Api() {
   const [error, setError] = useState("");
 
   function updateValue(apiItem) {
-
       setData(apiItem);
-
-   
   }
 
   return (

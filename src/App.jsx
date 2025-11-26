@@ -7,6 +7,8 @@ import Timeline from "./components/TimeLine";
 import Slidebar from "./pages/Slidebar";
 import Cart from "./pages/Cart";
 import Navbar from "./components/TimeLine";
+import Carousel from "./pages/Carousel";
+import Aos from "./pages/Aos";
 
 export const ApiDataContext = React.createContext();
 function App() {
@@ -16,7 +18,7 @@ function App() {
     <ApiDataContext.Provider value={value}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Cart/>} />
+          <Route path="/" element={<Aos/>} />
         </Routes>
       </BrowserRouter>
     </ApiDataContext.Provider>
