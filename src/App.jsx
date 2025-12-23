@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NewWord from "./pages/newWord";
+import { NewWords } from "./pages/NewWords";
 import Api from "./pages/Api";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
@@ -18,7 +19,7 @@ function App() {
     <ApiDataContext.Provider value={value}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Aos/>} />
+          <Route path="/" element={<NewWords/>} />
         </Routes>
       </BrowserRouter>
     </ApiDataContext.Provider>

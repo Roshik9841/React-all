@@ -9,7 +9,7 @@ import { Industry } from "../IT/industry.jsx";
 
 function Cart() {
   return (
-    <div className="bg-white w-full text-left">
+    <div className="bg-white w-full text-left max-w-full">
    
       <nav className="p-4 md:p-6  border-gray-200">
         <ul className="flex flex-row justify-between items-center ">
